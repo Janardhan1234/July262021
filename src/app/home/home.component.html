@@ -1,0 +1,60 @@
+<!-- <p>home works!</p> -->
+<!-- row align-items-center -->
+
+<div class="mb-4">
+
+	<h1 class="text-center" style="background-color: #20c997;" >List of array elements</h1>
+
+<mat-grid-list cols="4" rowHeight="100px">
+	<mat-grid-tile
+		*ngFor="let tile of tiles"
+		[colspan]="tile.cols"
+		[rowspan]="tile.rows"
+		[style.background]="tile.color">
+	  {{tile.text}}
+	</mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<div class="mt-4 text-center" style="background-color: #20c997;">
+	<h1>Add Employee Details</h1>
+	<div class="d-flex">
+		<div class="d-flex">
+		<input type="text" class="form-control" placeholder="name" #name>
+		<input type="text" class="form-control" placeholder="age" #age>
+		<input type="text" class="form-control" placeholder="designation" #designation>
+		<!-- <input type="number" class="form-control" placeholder="id" #id> -->
+		<button type="button" class="btn btn-secondary  btn-block" (click)="addEmployeedetails(name.value, age.value, designation.value)">Add Employee Details</button>
+		</div>	
+		
+
+	</div>
+
+	<!-- <li *ngFor="let user of employeeList; index as i;">
+		{{i}}/{{user.name}}. {{user.age}} 
+	  </li> -->
+
+	<table class="table">
+	
+		<thead>
+		  <tr>
+			<th scope="col">#</th>
+			<th scope="col">First</th>
+			<th scope="col">Last</th>
+			<th scope="col">Handle</th>
+		  </tr>
+		</thead>
+		<tbody >
+		  <tr *ngFor="let employee of employeeList; index as i;">
+			<th scope="row">{{i}}</th>
+			<td>{{employee.name}}</td>
+			<td>{{employee.age}}</td>
+			<td>{{employee.designation}}</td>
+		  </tr>
+		  
+		</tbody>
+	  </table>
+</div>
+
+
+
