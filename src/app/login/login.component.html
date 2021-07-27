@@ -23,6 +23,9 @@
 							<div *ngIf="loginForm.get('email').errors.required">
 								email is required.
 							</div>
+							<div *ngIf="loginForm.get('email').errors.pattern">
+								enter valid email
+							</div>
 						</div>					
 					
 						
