@@ -6,21 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-
-  // user={
-  //   role: 'ADMIN'
-  // }
-
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
-      // if(route.data[0]==this.user.role){
-        return true;    
-      // }else{
-      //   return false;
-      // }
-    
+    return true;
   }
   
 }

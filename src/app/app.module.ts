@@ -15,6 +15,12 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { RegistrationComponent } from './registration/registration.component';
+import { ChildacomponentComponent } from './childacomponent/childacomponent.component';
+import { ChildbcomponentComponent } from './childbcomponent/childbcomponent.component';
+import { DisplayComponent } from './display/display.component';
+import { ProductlistComponent } from './productlist/productlist.component';
+import { ProductService } from './product.service';
+import { TemplatedrivenComponent } from './templatedriven/templatedriven.component';
 
 
 @NgModule({
@@ -23,7 +29,12 @@ import { RegistrationComponent } from './registration/registration.component';
     HomeComponent,
     PictureComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ChildacomponentComponent,
+    ChildbcomponentComponent,
+    DisplayComponent,
+    ProductlistComponent,
+    TemplatedrivenComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +48,7 @@ import { RegistrationComponent } from './registration/registration.component';
     MatButtonModule,
     MatGridListModule   
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

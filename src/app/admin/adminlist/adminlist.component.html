@@ -1,0 +1,8 @@
+<div class="container">
+<h1 class="text-center headercolor">Select from list</h1>
+
+<ul class="list-style-none text-center">
+    <li class="list-group-item" *ngFor="let department of departmentList" [class.selectedItem]="isSelectedItem(department)" (click)="onselect(department)">{{department.department}}</li>
+  </ul>
+  </div>
+

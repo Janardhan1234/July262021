@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { titleDataType } from '../logindatatype';
 import { EmployeeDetails } from '../employeedetails';
+import {Router } from '@angular/router';
+
+
 
 interface employeedetail{
     name: string;
@@ -23,7 +26,7 @@ export class HomeComponent implements OnInit {
         {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
       ];
     employeeList:employeedetail[]=[];
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
