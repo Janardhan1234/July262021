@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ChildacomponentComponent } from './childacomponent/childacomponent.component';
 import { ChildbcomponentComponent } from './childbcomponent/childbcomponent.component';
+import { CustompipeComponent } from './custompipe/custompipe.component';
 import { DisplayComponent } from './display/display.component';
 import { AuthGuard } from './guard/auth.guard';
 import { HomeComponent } from './home/home.component';
@@ -49,6 +50,10 @@ const routes: Routes = [
 {
   path:'templateform',
   component:TemplatedrivenComponent
+},
+{
+  path:'custompipe',
+  component: CustompipeComponent
 }
   
 ];

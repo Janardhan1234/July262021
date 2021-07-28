@@ -21,6 +21,9 @@ import { DisplayComponent } from './display/display.component';
 import { ProductlistComponent } from './productlist/productlist.component';
 import { ProductService } from './product.service';
 import { TemplatedrivenComponent } from './templatedriven/templatedriven.component';
+import { CustompipeComponent } from './custompipe/custompipe.component';
+import { ReplacePipe } from './replace.pipe';
+
 
 
 @NgModule({
@@ -34,7 +37,10 @@ import { TemplatedrivenComponent } from './templatedriven/templatedriven.compone
     ChildbcomponentComponent,
     DisplayComponent,
     ProductlistComponent,
-    TemplatedrivenComponent
+    TemplatedrivenComponent,    
+    CustompipeComponent,
+    ReplacePipe,
+   
   ],
   imports: [
     BrowserModule,

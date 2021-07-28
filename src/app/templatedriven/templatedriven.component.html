@@ -9,8 +9,8 @@
       <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
           <div *ngIf="firstName.errors.required">First Name is required.</div>
           <div *ngIf="firstName.errors.minlength">First Name is minimum {{ firstName.errors.minlength.requiredLength }} character.</div>
-          <div *ngIf="firstName.errors.maxlength">First Name is maximum 10 character.</div>
-          {{firstName.errors.maxlength}}
+          <!-- <div *ngIf="firstName.errors.maxlength">First Name is maximum 10 character.</div>
+          {{firstName.errors|json}} -->
       </div>
   </div>
    
