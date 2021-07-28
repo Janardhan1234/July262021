@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustompipeComponent implements OnInit {
 
+  test = 'this is test';
+
   constructor() { }
 
   ngOnInit(): void {

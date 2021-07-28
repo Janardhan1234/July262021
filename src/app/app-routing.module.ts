@@ -4,7 +4,9 @@ import { AppComponent } from './app.component';
 import { ChildacomponentComponent } from './childacomponent/childacomponent.component';
 import { ChildbcomponentComponent } from './childbcomponent/childbcomponent.component';
 import { CustompipeComponent } from './custompipe/custompipe.component';
+import { DataboundComponent } from './databound/databound.component';
 import { DisplayComponent } from './display/display.component';
+import { ExternaltemplateComponent } from './externaltemplate/externaltemplate.component';
 import { AuthGuard } from './guard/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -54,6 +56,14 @@ const routes: Routes = [
 {
   path:'custompipe',
   component: CustompipeComponent
+},
+{
+  path:'databinding',
+  component: DataboundComponent
+},
+{
+  path:'externaltemplate',
+  component: ExternaltemplateComponent
 }
   
 ];

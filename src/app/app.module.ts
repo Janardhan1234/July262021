@@ -23,6 +23,8 @@ import { ProductService } from './product.service';
 import { TemplatedrivenComponent } from './templatedriven/templatedriven.component';
 import { CustompipeComponent } from './custompipe/custompipe.component';
 import { ReplacePipe } from './replace.pipe';
+import { DataboundComponent } from './databound/databound.component';
+import { ExternaltemplateComponent } from './externaltemplate/externaltemplate.component';
 
 
 
@@ -40,6 +42,8 @@ import { ReplacePipe } from './replace.pipe';
     TemplatedrivenComponent,    
     CustompipeComponent,
     ReplacePipe,
+    DataboundComponent,
+    ExternaltemplateComponent,
    
   ],
   imports: [
