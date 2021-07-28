@@ -1,0 +1,15 @@
+.greenClass{
+    color:green;
+}
+
+.italicsClass{
+    font-style: italic;
+}
+
+.boldClass{
+    font-style: bold;
+}
+
+.errorClass{
+    color:red;
+}

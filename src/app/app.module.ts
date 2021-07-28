@@ -25,6 +25,9 @@ import { CustompipeComponent } from './custompipe/custompipe.component';
 import { ReplacePipe } from './replace.pipe';
 import { DataboundComponent } from './databound/databound.component';
 import { ExternaltemplateComponent } from './externaltemplate/externaltemplate.component';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './child/child.component';
+import { StylebindingComponent } from './stylebinding/stylebinding.component';
 
 
 
@@ -44,6 +47,9 @@ import { ExternaltemplateComponent } from './externaltemplate/externaltemplate.c
     ReplacePipe,
     DataboundComponent,
     ExternaltemplateComponent,
+    ParentComponent,
+    ChildComponent,
+    StylebindingComponent,
    
   ],
   imports: [

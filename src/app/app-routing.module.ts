@@ -10,9 +10,11 @@ import { ExternaltemplateComponent } from './externaltemplate/externaltemplate.c
 import { AuthGuard } from './guard/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { ParentComponent } from './parent/parent.component';
 import { PictureComponent } from './picture/picture.component';
 import { ProductlistComponent } from './productlist/productlist.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { StylebindingComponent } from './stylebinding/stylebinding.component';
 import { TemplatedrivenComponent } from './templatedriven/templatedriven.component';
 
 
@@ -64,6 +66,14 @@ const routes: Routes = [
 {
   path:'externaltemplate',
   component: ExternaltemplateComponent
+},
+{
+  path:'parent',
+  component: ParentComponent
+},
+{
+  path:'stylebinding',
+  component: StylebindingComponent
 }
   
 ];
