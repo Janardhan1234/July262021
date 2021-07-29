@@ -17,6 +17,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { StylebindingComponent } from './stylebinding/stylebinding.component';
 import { TemplatedrivenComponent } from './templatedriven/templatedriven.component';
 import { UserComponent } from './user/user.component';
+import { UserdetailComponent } from './userdetail/userdetail.component';
 
 
 const routes: Routes = [
@@ -79,6 +80,10 @@ const routes: Routes = [
 {
   path:'user',
   component: UserComponent
+},
+{
+  path:'userdetail',
+  component: UserdetailComponent
 }
   
 ];

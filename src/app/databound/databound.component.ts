@@ -20,4 +20,9 @@ export class DataboundComponent implements OnInit {
     this.inputValue="test@gmail.com";
   }
 
+  twoWayBinding(){
+    this.showValue = "value change in code";
+    console.log("clicked")
+  }
+
 }

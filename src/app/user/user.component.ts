@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, NgForm, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { ApiService } from '../api.service';
+import { getLocaleDateFormat } from '@angular/common';
 
 @Component({
   selector: 'app-user',
@@ -8,19 +11,23 @@ import { AbstractControl, FormBuilder, FormGroup, NgForm, ValidationErrors, Vali
 })
 export class UserComponent implements OnInit {
   userForm: any;
+  
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,private http: HttpClient, private apiService:ApiService) { }
 
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
       name: ["",[Validators.required, Validators.minLength(4)]],
       about: ["",Validators.required],
-      dob: ["",[Validators.required,Validators.pattern('^(?:(?:10|12|0?[13578])/(?:3[01]|[12][0-9]|0?[1-9])/(?:1[8-9]\\d{2}|[2-9]\\d{3})|(?:11|0?[469])/(?:30|[12][0-9]|0?[1-9])/(?:1[8-9]\\d{2}|[2-9]\\d{3})|0?2/(?:2[0-8]|1[0-9]|0?[1-9])/(?:1[8-9]\\d{2}|[2-9]\\d{3})|0?2/29/[2468][048]00|0?2/29/[3579][26]00|0?2/29/[1][89][0][48]|0?2/29/[2-9][0-9][0][48]|0?2/29/1[89][2468][048]|0?2/29/[2-9][0-9][2468][048]|0?2/29/1[89][13579][26]|0?2/29/[2-9][0-9][13579][26])$')]],
+      dob: ["",[Validators.required]],
+      // Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)
       age: ["",[Validators.required,Validators.pattern('[0-9]*')]],
       phone: ["",[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       email: ["",[Validators.required, Validators.email,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       linkedin_profile: ["",[Validators.required,Validators.pattern('^https:\\/\\/[a-z]{2,3}\\.linkedin\\.com\\/.*$')]]      
     });
+
+   
   }
 
   getUserDetail(event:any){
@@ -29,9 +36,11 @@ export class UserComponent implements OnInit {
     let about = this.userForm.controls['about'].value;
     let dob = this.userForm.controls['dob'].value;
     let age = this.userForm.controls['age'].value;
-    let phone = this.userForm.controls['phone'].value;
+    let phone = parseInt(this.userForm.controls['phone'].value);
     let email = this.userForm.controls['email'].value;
     let linkedin_profile = this.userForm.controls['linkedin_profile'].value;
+    
+    console.log("type of phone", typeof phone);
 
     let obj={
       name:name,
@@ -44,8 +53,31 @@ export class UserComponent implements OnInit {
     }
 
     console.log(obj);
-    
 
+    // this.http.post('http://localhost:8000/api/user', obj).map((response: Response)=>response.json()).subscribe(data:any=>{alert(data:any)});
+
+    // this.http.post('http"//localhost:8000/api/user', obj).subscribe(
+    //   res =>{console.log(res)    
+      
+    //     alert("logged in succesfully");
+    //     // this.router.navigateByUrl('/home');
+      
+    //   } ,
+    //   err =>{console.log(err)
+    //   alert("incorrect email id or password")
+    //   } 
+    // );
+    // console.log("result", user);
+    // return  
+
+    this.apiService.postData(obj).subscribe(result=>{
+      console.log(result);
+    })
+
+  }
+
+  getApiData(){
+    
   }
 
 }

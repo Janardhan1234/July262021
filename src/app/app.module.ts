@@ -29,6 +29,7 @@ import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { StylebindingComponent } from './stylebinding/stylebinding.component';
 import { UserComponent } from './user/user.component';
+import { UserdetailComponent } from './userdetail/userdetail.component';
 
 
 
@@ -52,6 +53,7 @@ import { UserComponent } from './user/user.component';
     ChildComponent,
     StylebindingComponent,
     UserComponent,
+    UserdetailComponent,
    
   ],
   imports: [

@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class StylebindingComponent implements OnInit {
 
   title = 'style-binding';
-  hasError : boolean = false;
+  hasError : boolean = true;
   styleArray = ['errorClass', 'boldClass'];
   styleObject = {
     'errorClass': false,
