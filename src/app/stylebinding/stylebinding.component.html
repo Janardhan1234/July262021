@@ -1,40 +1,51 @@
 <div class="container m-4 text-center">
 
-ngClass is used to bind CSS class to elements in Angular<br>
-ngClass can take three kinds of input/variables<br>
+    <h1 [style.color] = "'green'" 
+    [style.text-align] = "'center'" >
+    Style element
+</h1>
+
+className is used to bind CSS class to elements in Angular<br>
+className can take three kinds of input/variables<br>
 1) String<br>
 2) Array<br>
 3) Objects<br>
 
 Syntax : <br>
-<h3> [ngClass]="string|array|Objects"</h3>
+<h3> [className]="string|array|Objects"</h3>
 <br><br>
 
-String Example<br>
-<div [ngClass]="'greenClass'">Hello World. greenClass Applied</div>
-<div [ngClass]="'greenClass italicsClass'">Hello World. greenClass and Italics Class Applied</div>
+<h1>String Example</h1> <br>
+<div [className]="'greenClass'">Hello World. greenClass Applied</div>
+<div [className]="'greenClass italicsClass'">Hello World. greenClass and Italics Class Applied</div>
 <br><br>
 
-Array Example<br>
-<div [ngClass]="styleArray">Hello World. Array Applied.</div>
+<h1>Array Example</h1><br>
+<div [className]="styleArray">Hello World. Array Applied.</div>
 <br><br>
 
-Object Example<br>
-<div [ngClass]="styleObject">Hellow World. Object Style Applied.</div>
+<h1>Object Example</h1><br>
+<div [className]="styleObject">Hellow World. Object Style Applied.</div>
 <br><br>
 
-Function Example<br>
-<div [ngClass]="getGreenClass()"> Hellow World. Functin Returns Green Class</div>
+<h1>Function Example</h1><br>
+<div [className]="getGreenClass()"> Hellow World. Functin Returns Green Class</div>
 
 <br><br>
-Conditional Style Application<br>
-<div [ngClass]="hasError ? 'errorClass' : 'greenClass'"> If hasError is true, the text will be red, else green</div>
+<h1>Conditional Style Application</h1><br>
+<div [className]="hasError ? 'errorClass' : 'greenClass'"> If hasError is true, the text will be red, else green</div> <br>
+
+<h1>Class binding with Class</h1> <br>
+<!-- div [class.<className>]="condition"></div> -->
+    <p [class.greenClass]="true" [class.boldClass]="true">Test</p>
+    <p [class.greenClass]="hasError" [class.boldClass]="hasError">Test</p>
+    <!-- <div [class.red]="hasError()" [class.size20]="hasError()">Test</div> -->
 
 <br><br>
-ngStyle<br>
+Style<br>
 Syntax:<br>
 <!-- [ngStyle]="{'property':'value'}" -->
 
-<div [ngStyle]="{'color': 'blue'}"> The Text Color has been set to blue <div>
+<div [style]="{'color': 'blue'}"> The Text Color has been set to blue <div>
 
 </div>

@@ -28,6 +28,7 @@ import { ExternaltemplateComponent } from './externaltemplate/externaltemplate.c
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { StylebindingComponent } from './stylebinding/stylebinding.component';
+import { UserComponent } from './user/user.component';
 
 
 
@@ -50,6 +51,7 @@ import { StylebindingComponent } from './stylebinding/stylebinding.component';
     ParentComponent,
     ChildComponent,
     StylebindingComponent,
+    UserComponent,
    
   ],
   imports: [

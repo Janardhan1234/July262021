@@ -16,6 +16,7 @@ import { ProductlistComponent } from './productlist/productlist.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { StylebindingComponent } from './stylebinding/stylebinding.component';
 import { TemplatedrivenComponent } from './templatedriven/templatedriven.component';
+import { UserComponent } from './user/user.component';
 
 
 const routes: Routes = [
@@ -74,6 +75,10 @@ const routes: Routes = [
 {
   path:'stylebinding',
   component: StylebindingComponent
+},
+{
+  path:'user',
+  component: UserComponent
 }
   
 ];
