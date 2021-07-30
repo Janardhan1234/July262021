@@ -17,4 +17,8 @@ export class ApiService {
   getData(){
     return this.http.get(this.baseUrl);
   }
+
+  getDataById(id:any){
+    return this.http.get(this.baseUrl, id);
+  }
 }

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, NgForm, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from '../api.service';
 import { getLocaleDateFormat } from '@angular/common';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 
 
@@ -18,7 +19,17 @@ export class UserComponent implements OnInit {
   userForm: any;
   
 
-  constructor(private formBuilder: FormBuilder,private http: HttpClient, private apiService:ApiService, private snackbar: MatSnackBar) { }
+  constructor(private formBuilder: FormBuilder,
+    private http: HttpClient,
+    private apiService:ApiService,
+    private snackbar: MatSnackBar,
+    public dialogRef: MatDialogRef<any>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData | any
+
+  ) { }
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
@@ -33,7 +44,19 @@ export class UserComponent implements OnInit {
       editor:['']
     });
 
-  
+    console.log("data", this.data.dialagText);
+
+    if (this.data.dialagText) {
+      let id = this.data.dialogText;
+      this.apiService.getDataById(id)          
+          .subscribe(x =>{
+            console.log("id value", x);
+            let value = x;
+            let obj = value.findIndex(o => o._id === id);
+            console.log("obj", obj);
+            // this.userForm.patchValue(x)
+          }) ;
+  }
 
    
   }

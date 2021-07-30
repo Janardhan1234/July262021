@@ -62,8 +62,11 @@ export class UserdetailComponent implements OnInit {
     }
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(UserComponent);
+  openDialog(value:any) {
+    console.log("selected value", value);
+    const dialogRef = this.dialog.open(UserComponent,{
+      data:{dialagText: value}
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
