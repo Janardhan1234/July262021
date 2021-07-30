@@ -1,4 +1,7 @@
-<div class="container">
+<div class="container overflow-auto" >
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>close</button>    
+  </mat-dialog-actions>
 	<div class="row">
 	    
 	    
@@ -14,7 +17,7 @@
 <fieldset>
 
 <!-- Form Name -->
-<legend>Client</legend>
+<!-- <legend>Client</legend> -->
 
 <!-- Text input-->
 <div class="form-group">
@@ -32,23 +35,6 @@
 </div>  
   </div>
 </div>
-
-<!-- about -->
-<div class="form-group">
-    <label class="col-md-4 control-label" for="client-about">About</label>  
-    <div class="col-md-4">
-    <input id="client-about" name="client-about" type="text" formControlName="about" placeholder="your client's about" class="form-control input-md">
-    <span class="help-block"></span>
-    <div *ngIf="userForm.get('about').invalid &&  userForm.get('about').touched" class="alert alert-danger">
-        <div *ngIf="userForm.get('about').errors.required">
-            about is required.
-        </div>
-        <div *ngIf="userForm.get('about').errors.pattern">
-            enter valid about
-        </div>
-    </div>    
-    </div>
-  </div>
 
   <!-- date of birth -->
   <div class="form-group">
@@ -138,12 +124,38 @@
     </div>
   </div>
 
-  
+  <!-- about -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="client-about">About</label>  
+  <div class="col-md-4">
+  <!-- <input id="client-about" name="client-about" type="text" formControlName="about" placeholder="your client's about" class="form-control input-md"> -->
+  <quill-editor formControlName="about" [styles]="{height: '200px'}"></quill-editor>
+  <span class="help-block"></span>
+  <div *ngIf="userForm.get('about').invalid &&  userForm.get('about').touched" class="alert alert-danger">
+      <div *ngIf="userForm.get('about').errors.required">
+          about is required.
+      </div>
+      <div *ngIf="userForm.get('about').errors.pattern">
+          enter valid about
+      </div>
+  </div>    
+  </div>
+</div>
+
+  <!-- Create the editor container -->
+<!-- <div id="editor">
+  <p>Hello World!</p>
+  <p>Some initial <strong>bold</strong> text</p>
+  <p><br></p>
+</div> -->
+<!-- <quill-editor></quill-editor> -->
+<!-- <quill-editor formControlname="editor"></quill-editor> -->
+<!-- <quill-editor [styles]="{height: '200px'}"></quill-editor> -->
 
   <div class="form-group">
     <label class="col-md-4 control-label" for="btn-save"></label>
     <div class="col-md-4">
-      <button id="btn-save" type="submit" name="btn-save" class="btn btn-success">Submit</button>
+      <button id="btn-save" type="submit" name="btn-save" class="btn btn-success" [disabled]="userForm.invalid" >Submit</button>
     </div>
   </div>
 

@@ -4,6 +4,11 @@
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+/* You can add global styles to this file, and also import other style files */
+@import "~quill/dist/quill.core.css";
+@import "~quill/dist/quill.bubble.css";
+@import "~quill/dist/quill.snow.css";
+
 html,body{
 /* background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
 background-size: cover;

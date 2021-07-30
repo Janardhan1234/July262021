@@ -30,6 +30,16 @@ import { ChildComponent } from './child/child.component';
 import { StylebindingComponent } from './stylebinding/stylebinding.component';
 import { UserComponent } from './user/user.component';
 import { UserdetailComponent } from './userdetail/userdetail.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatInputModule} from '@angular/material/input';
+import { QuillModule } from 'ngx-quill'
+
+
+
 
 
 
@@ -66,7 +76,15 @@ import { UserdetailComponent } from './userdetail/userdetail.component';
     BrowserAnimationsModule,
     MatSliderModule,
     MatButtonModule,
-    MatGridListModule   
+    MatGridListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatInputModule,
+    QuillModule.forRoot()   
+   
   ],
   providers: [AuthGuard, ProductService],
   bootstrap: [AppComponent]

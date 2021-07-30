@@ -3,6 +3,11 @@ import { AbstractControl, FormBuilder, FormGroup, NgForm, ValidationErrors, Vali
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from '../api.service';
 import { getLocaleDateFormat } from '@angular/common';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
+
+
+
 
 @Component({
   selector: 'app-user',
@@ -13,7 +18,7 @@ export class UserComponent implements OnInit {
   userForm: any;
   
 
-  constructor(private formBuilder: FormBuilder,private http: HttpClient, private apiService:ApiService) { }
+  constructor(private formBuilder: FormBuilder,private http: HttpClient, private apiService:ApiService, private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
@@ -24,14 +29,18 @@ export class UserComponent implements OnInit {
       age: ["",[Validators.required,Validators.pattern('[0-9]*')]],
       phone: ["",[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       email: ["",[Validators.required, Validators.email,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
-      linkedin_profile: ["",[Validators.required,Validators.pattern('^https:\\/\\/[a-z]{2,3}\\.linkedin\\.com\\/.*$')]]      
+      linkedin_profile: ["",[Validators.required,Validators.pattern('^https:\\/\\/[a-z]{2,3}\\.linkedin\\.com\\/.*$')]],      
+      editor:['']
     });
+
+  
 
    
   }
 
   getUserDetail(event:any){
     event.preventDefault();
+    console.log("user form", this.userForm);
     let name = this.userForm.controls['name'].value;
     let about = this.userForm.controls['about'].value;
     let dob = this.userForm.controls['dob'].value;
@@ -72,6 +81,10 @@ export class UserComponent implements OnInit {
 
     this.apiService.postData(obj).subscribe(result=>{
       console.log(result);
+      this.snackbar.open("user details submitted successfully",'',{
+        duration:5000
+      })
+      this.userForm.reset()
     })
 
   }
