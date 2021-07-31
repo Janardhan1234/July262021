@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import {MatDialog} from '@angular/material/dialog';
 import { UserComponent } from '../user/user.component';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { UpdateComponent } from '../update/update.component';
 
 @Component({
   selector: 'app-userdetail',
@@ -62,9 +63,18 @@ export class UserdetailComponent implements OnInit {
     }
   }
 
-  openDialog(value:any) {
+  openDialog() {
+    // console.log("selected value", value);
+    const dialogRef = this.dialog.open(UserComponent);   
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  openDialogEdit(value:any) {
     console.log("selected value", value);
-    const dialogRef = this.dialog.open(UserComponent,{
+    const dialogRef = this.dialog.open(UpdateComponent,{
       data:{dialagText: value}
     });
 

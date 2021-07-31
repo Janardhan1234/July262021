@@ -1,0 +1,204 @@
+<div class="container overflow-auto" >
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>close</button>    
+    </mat-dialog-actions>
+      <div class="row">
+          
+          
+  <link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" rel="stylesheet" media="screen">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+  
+  
+  
+  <!-- FORM  -->	    
+         <div class="col-md-12">
+             
+  <form class="form-horizontal" id="form-edit-client" [formGroup]="editForm" (submit)="editUserDetail($event)">
+  <fieldset>
+  
+  <!-- Form Name -->
+  <!-- <legend>Client</legend> -->
+  
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="client-name">Name</label>  
+    <div class="col-md-4">
+    <input id="client-name" name="client-name" type="text" formControlName="name" placeholder="your client's name" class="form-control input-md">
+    <span class="help-block">Full name of your customer</span>
+    <div *ngIf="editForm.get('name').invalid &&  editForm.get('name').touched" class="alert alert-danger">
+      <div *ngIf="editForm.get('name').errors.required">
+          name is required.
+      </div>
+      <div *ngIf="editForm.get('name').errors.pattern">
+          enter valid name
+      </div>
+  </div>  
+    </div>
+  </div>
+  
+    <!-- date of birth -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="client-dob">DOB</label>  
+      <div class="col-md-4">
+      <input id="client-dob" name="client-dob" type="date" formControlName="dob" placeholder="your client's dob" class="form-control input-md">
+      <span class="help-block"></span>
+      <div *ngIf="editForm.get('dob').invalid &&  editForm.get('dob').touched" class="alert alert-danger">
+          <div *ngIf="editForm.get('dob').errors.required">
+              dob is required.
+          </div>
+          <div *ngIf="editForm.get('dob').errors.pattern">
+              enter valid dob
+          </div>
+      </div>  
+      </div>
+    </div>
+  
+    <!-- age -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="client-age">Age</label>  
+      <div class="col-md-4">
+      <input id="client-age" name="client-age" type="number" formControlName="age" placeholder="your client's age" class="form-control input-md">
+      <span class="help-block"></span>
+      <div *ngIf="editForm.get('age').invalid &&  editForm.get('age').touched" class="alert alert-danger">
+          <div *ngIf="editForm.get('age').errors.required">
+              age is required.
+          </div>
+          <div *ngIf="editForm.get('age').errors.pattern">
+              enter valid age
+          </div>
+      </div>  
+      </div>
+    </div>
+  
+    <!-- mobile number -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="client-phone">Mobile Number</label>  
+      <div class="col-md-4">
+      <input id="client-phone" name="client-phone" type="number"  formControlName="phone" placeholder="your client's phone" class="form-control input-md">
+      <span class="help-block"></span>
+      <div *ngIf="editForm.get('phone').invalid &&  editForm.get('phone').touched" class="alert alert-danger">
+          <div *ngIf="editForm.get('phone').errors.required">
+              phone is required.
+          </div>
+          <div *ngIf="editForm.get('phone').errors.pattern">
+              enter valid phone
+          </div>
+      </div>    
+      </div>
+    </div>
+  
+  <!-- Prepended text-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="client-email">Email</label>
+    <div class="col-md-4">
+      <div class="input-group">
+        <span class="input-group-addon">@</span>
+        <input id="client-email" name="client-email" formControlName="email" class="form-control" placeholder="yourname@yourdomain.com" type="text">
+      </div>
+      <p class="help-block">Email of your client</p>
+      <div *ngIf="editForm.get('email').invalid &&  editForm.get('email').touched" class="alert alert-danger">
+          <div *ngIf="editForm.get('email').errors.required">
+              email is required.
+          </div>
+          <div *ngIf="editForm.get('email').errors.pattern">
+              enter valid email
+          </div>
+      </div>  
+    </div>
+  </div>
+  
+  <!-- profile url -->
+  <div class="form-group">
+      <label class="col-md-4 control-label" for="client-linkedin_profile">Profile url</label>  
+      <div class="col-md-4">
+      <input id="client-linkedin_profile" name="client-linkedin_profile" type="text" formControlName="linkedin_profile" placeholder="your client's linkedin_profile" class="form-control input-md">
+      <span class="help-block">Linkedin</span>
+      <div *ngIf="editForm.get('linkedin_profile').invalid &&  editForm.get('linkedin_profile').touched" class="alert alert-danger">
+          <div *ngIf="editForm.get('linkedin_profile').errors.required">
+              linkedin_profile is required.
+          </div>
+          <div *ngIf="editForm.get('linkedin_profile').errors.pattern">
+              enter valid linkedin_profile
+          </div>
+      </div>    
+      </div>
+    </div>
+  
+    <!-- about -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="client-about">About</label>  
+    <div class="col-md-4">
+    <!-- <input id="client-about" name="client-about" type="text" formControlName="about" placeholder="your client's about" class="form-control input-md"> -->
+    <quill-editor formControlName="about" [styles]="{height: '200px'}"></quill-editor>
+    <span class="help-block"></span>
+    <div *ngIf="editForm.get('about').invalid &&  editForm.get('about').touched" class="alert alert-danger">
+        <div *ngIf="editForm.get('about').errors.required">
+            about is required.
+        </div>
+        <div *ngIf="editForm.get('about').errors.pattern">
+            enter valid about
+        </div>
+    </div>    
+    </div>
+  </div>
+  
+    <!-- Create the editor container -->
+  <!-- <div id="editor">
+    <p>Hello World!</p>
+    <p>Some initial <strong>bold</strong> text</p>
+    <p><br></p>
+  </div> -->
+  <!-- <quill-editor></quill-editor> -->
+  <!-- <quill-editor formControlname="editor"></quill-editor> -->
+  <!-- <quill-editor [styles]="{height: '200px'}"></quill-editor> -->
+  
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="btn-save"></label>
+      <div class="col-md-4">
+        <button id="btn-save" type="submit" name="btn-save" class="btn btn-success" [disabled]="editForm.invalid" >Submit</button>
+      </div>
+    </div>
+  
+  
+    <!-- <div>
+        <button (click)=getApiData()>get data</button>
+    </div> -->
+  <!-- Multiple Radios -->
+  <!-- <div class="form-group">
+    <label class="col-md-4 control-label" for="client-status">Client status</label>
+    <div class="col-md-4">
+    <div class="radio">
+      <label for="client-status-0">
+        <input type="radio" name="client-status" id="client-status-0" value="active" checked="checked">
+        Active
+      </label>
+      </div>
+    <div class="radio">
+      <label for="client-status-1">
+        <input type="radio" name="client-status" id="client-status-1" value="inactive">
+        Inactive
+      </label>
+      </div>
+    </div>
+  </div> -->
+  
+  
+  <!-- Button -->
+  <!-- <div class="form-group">
+    <label class="col-md-4 control-label" for="btn-save"></label>
+    <div class="col-md-4">
+      <button id="btn-save" name="btn-save" class="btn btn-success">Save</button>
+    </div>
+  </div> -->
+  
+  </fieldset>
+  </form>
+  
+  
+         </div> 
+           
+      </div>
+  
+      
+  </div>
+  

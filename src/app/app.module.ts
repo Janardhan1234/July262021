@@ -33,10 +33,11 @@ import { UserdetailComponent } from './userdetail/userdetail.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule, MatDialogRef, MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatInputModule} from '@angular/material/input';
-import { QuillModule } from 'ngx-quill'
+import { QuillModule } from 'ngx-quill';
+import { UpdateComponent } from './update/update.component'
 
 
 
@@ -64,6 +65,7 @@ import { QuillModule } from 'ngx-quill'
     StylebindingComponent,
     UserComponent,
     UserdetailComponent,
+    UpdateComponent,
    
   ],
   imports: [
@@ -86,7 +88,15 @@ import { QuillModule } from 'ngx-quill'
     QuillModule.forRoot()   
    
   ],
-  providers: [AuthGuard, ProductService],
+  providers: [
+    {
+      provide: MatDialogRef,
+      useValue: {}
+    },
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+    MatDialog,    
+    
+    AuthGuard, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

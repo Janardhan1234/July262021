@@ -1,41 +1,30 @@
-import { Component, Inject, OnInit  } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, NgForm, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { formatDate } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { ApiService } from '../api.service';
-import { getLocaleDateFormat } from '@angular/common';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { formatDate } from '@angular/common'
-
-
-
-
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ApiService } from '../api.service';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  selector: 'app-update',
+  templateUrl: './update.component.html',
+  styleUrls: ['./update.component.css']
 })
-export class UserComponent implements OnInit {
-  userForm: any;
+export class UpdateComponent implements OnInit {
+  editForm: any;
   
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(
+    private formBuilder: FormBuilder,
     private http: HttpClient,
     private apiService:ApiService,
     private snackbar: MatSnackBar,
     public dialogRef: MatDialogRef<any>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData | any,
-   
-
-  ) { }
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
+    @Inject(MAT_DIALOG_DATA) public data: DialogData | any) { }
 
   ngOnInit(): void {
-    
-    this.userForm = this.formBuilder.group({
+    this.editForm = this.formBuilder.group({
       name: ["",[Validators.required, Validators.minLength(4)]],
       about: ["",Validators.required],
       dob: [formatDate(new Date("Jan 24, 2000"), "yyyy-MM-dd", "en"),[Validators.required]],
@@ -67,7 +56,7 @@ export class UserComponent implements OnInit {
             console.log("formated date", formatDate(obj.dob,'dd-MM-yyyy','en'));
             
              
-            this.userForm.patchValue({
+            this.editForm.patchValue({
               name: obj.name,
               about: obj.about,
               dob:formatDate(new Date(obj.dob), "yyyy-MM-dd", "en"),
@@ -85,29 +74,18 @@ export class UserComponent implements OnInit {
           }) ;
   }
 
-   
   }
 
-  formatDate(date:any) {
-    const d = new Date(date);
-    let month = '' + (d.getMonth() + 1);
-    let day = '' + d.getDate();
-    const year = d.getFullYear();
-    if (month.length < 2) month = '0' + month;
-    if (day.length < 2) day = '0' + day;
-    return [day, month,  year].join('-');
-  }
-
-  getUserDetail(event:any){
+  editUserDetail(event:any){
     event.preventDefault();
-    console.log("user form", this.userForm);
-    let name = this.userForm.controls['name'].value;
-    let about = this.userForm.controls['about'].value;
-    let dob = this.userForm.controls['dob'].value;
-    let age = this.userForm.controls['age'].value;
-    let phone = parseInt(this.userForm.controls['phone'].value);
-    let email = this.userForm.controls['email'].value;
-    let linkedin_profile = this.userForm.controls['linkedin_profile'].value;
+    console.log("user form", this.editForm);
+    let name = this.editForm.controls['name'].value;
+    let about = this.editForm.controls['about'].value;
+    let dob = this.editForm.controls['dob'].value;
+    let age = this.editForm.controls['age'].value;
+    let phone = parseInt(this.editForm.controls['phone'].value);
+    let email = this.editForm.controls['email'].value;
+    let linkedin_profile = this.editForm.controls['linkedin_profile'].value;
     
     console.log("type of phone", typeof phone);
 
@@ -122,35 +100,16 @@ export class UserComponent implements OnInit {
     }
 
     console.log(obj);
-
-    // this.http.post('http://localhost:8000/api/user', obj).map((response: Response)=>response.json()).subscribe(data:any=>{alert(data:any)});
-
-    // this.http.post('http"//localhost:8000/api/user', obj).subscribe(
-    //   res =>{console.log(res)    
-      
-    //     alert("logged in succesfully");
-    //     // this.router.navigateByUrl('/home');
-      
-    //   } ,
-    //   err =>{console.log(err)
-    //   alert("incorrect email id or password")
-    //   } 
-    // );
-    // console.log("result", user);
-    // return  
+    
 
     this.apiService.postData(obj).subscribe(result=>{
       console.log(result);
       this.snackbar.open("user details submitted successfully",'',{
         duration:5000
       })
-      this.userForm.reset()
+      this.editForm.reset()
     })
 
-  }
-
-  getApiData(){
-    
   }
 
 }

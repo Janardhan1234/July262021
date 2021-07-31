@@ -16,6 +16,7 @@ import { ProductlistComponent } from './productlist/productlist.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { StylebindingComponent } from './stylebinding/stylebinding.component';
 import { TemplatedrivenComponent } from './templatedriven/templatedriven.component';
+import { UpdateComponent } from './update/update.component';
 import { UserComponent } from './user/user.component';
 import { UserdetailComponent } from './userdetail/userdetail.component';
 
@@ -81,6 +82,10 @@ const routes: Routes = [
   path:'user',
   component: UserComponent
 },
+// {
+//   path:'update',
+//   component: UpdateComponent
+// },
 {
   path:'userdetail',
   component: UserdetailComponent
