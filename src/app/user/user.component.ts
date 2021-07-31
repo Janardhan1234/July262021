@@ -26,7 +26,7 @@ export class UserComponent implements OnInit {
     private snackbar: MatSnackBar,
     public dialogRef: MatDialogRef<any>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData | any,
-    private pipe: Pipe
+    public pipe: Pipe
 
   ) { }
   onNoClick(): void {
@@ -34,6 +34,7 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     this.userForm = this.formBuilder.group({
       name: ["",[Validators.required, Validators.minLength(4)]],
       about: ["",Validators.required],
