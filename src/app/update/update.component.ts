@@ -13,6 +13,7 @@ import { ApiService } from '../api.service';
 })
 export class UpdateComponent implements OnInit {
   editForm: any;
+  id: any;
   
 
   constructor(
@@ -27,7 +28,7 @@ export class UpdateComponent implements OnInit {
     this.editForm = this.formBuilder.group({
       name: ["",[Validators.required, Validators.minLength(4)]],
       about: ["",Validators.required],
-      dob: [formatDate(new Date("Jan 24, 2000"), "yyyy-MM-dd", "en"),[Validators.required]],
+      dob: ["", "yyyy-MM-dd", "en"),[Validators.required]],
       // Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)
       age: ["",[Validators.required,Validators.pattern('[0-9]*')]],
       phone: ["",[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
@@ -39,11 +40,12 @@ export class UpdateComponent implements OnInit {
     console.log("data", this.data.dialagText);
 
     if (this.data.dialagText) {
-      let id = this.data.dialogText;
+       let id = this.data.dialogText;
       this.apiService.getDataById(id)          
           .subscribe(x =>{
             console.log("id value",  this.data.dialagText);
             let idValue = this.data.dialagText;
+            this.id = idValue;
             let value = x;
             let obj = value.find(o => o._id === idValue);
             console.log("obj", obj);            
@@ -100,14 +102,14 @@ export class UpdateComponent implements OnInit {
     }
 
     console.log(obj);
-    
+    console.log(this.id);
 
-    this.apiService.postData(obj).subscribe(result=>{
-      console.log(result);
+    this.apiService.updateDataById(this.id, obj).subscribe(result=>{
+      console.log(this.id);
       this.snackbar.open("user details submitted successfully",'',{
         duration:5000
       })
-      this.editForm.reset()
+      // this.editForm.reset()
     })
 
   }

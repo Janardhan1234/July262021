@@ -21,4 +21,9 @@ export class ApiService {
   getDataById(id:any){
     return this.http.get(this.baseUrl, id);
   }
+
+  updateDataById(id:any, data:any){
+    console.log("id", id);
+    return this.http.patch(`${this.baseUrl}/${id}`, data);
+  }
 }
