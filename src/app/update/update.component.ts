@@ -28,7 +28,7 @@ export class UpdateComponent implements OnInit {
     this.editForm = this.formBuilder.group({
       name: ["",[Validators.required, Validators.minLength(4)]],
       about: ["",Validators.required],
-      dob: ["", "yyyy-MM-dd", "en"),[Validators.required]],
+      dob: ["",[Validators.required]],
       // Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)
       age: ["",[Validators.required,Validators.pattern('[0-9]*')]],
       phone: ["",[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
@@ -47,7 +47,7 @@ export class UpdateComponent implements OnInit {
             let idValue = this.data.dialagText;
             this.id = idValue;
             let value = x;
-            let obj = value.find(o => o._id === idValue);
+            let obj = value.find((o:any) => o._id === idValue);
             console.log("obj", obj);            
             let dateConversion = new Date(obj.dob);            
             let formatted_date = dateConversion.getDate() + "-" + (dateConversion.getMonth() + 1) + "-" + dateConversion.getFullYear()
@@ -110,6 +110,9 @@ export class UpdateComponent implements OnInit {
         duration:5000
       })
       // this.editForm.reset()
+    },
+    error => {
+      console.log(error);
     })
 
   }

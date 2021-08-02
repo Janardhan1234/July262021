@@ -1,0 +1,21 @@
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>            
+            <th scope="col">Bank Name</th>
+            <th scope="col">IFSC</th>
+            <th scope="col">Account Number</th>
+            <th scope="col">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let detail of bankDetail">            
+            <td>{{detail.bankName}}</td>
+            <td>{{detail.ifsc}}</td>
+            <td>{{detail.accountNumber}}</td>
+            <td>{{detail.amount}}</td>
+          </tr>
+         
+        </tbody>
+      </table>
+</div>

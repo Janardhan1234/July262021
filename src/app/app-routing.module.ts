@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { BankComponent } from './bank/bank.component';
 import { ChildacomponentComponent } from './childacomponent/childacomponent.component';
 import { ChildbcomponentComponent } from './childbcomponent/childbcomponent.component';
 import { CustompipeComponent } from './custompipe/custompipe.component';
@@ -89,6 +90,10 @@ const routes: Routes = [
 {
   path:'userdetail',
   component: UserdetailComponent
+},
+{
+  path:'bank',
+  component: BankComponent
 }
   
 ];

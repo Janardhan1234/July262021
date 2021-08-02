@@ -38,7 +38,7 @@ export class UserComponent implements OnInit {
     this.userForm = this.formBuilder.group({
       name: ["",[Validators.required, Validators.minLength(4)]],
       about: ["",Validators.required],
-      dob: [formatDate(new Date("Jan 24, 2000"), "yyyy-MM-dd", "en"),[Validators.required]],
+      dob: ["",[Validators.required]],
       // Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)
       age: ["",[Validators.required,Validators.pattern('[0-9]*')]],
       phone: ["",[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
@@ -56,7 +56,7 @@ export class UserComponent implements OnInit {
             console.log("id value",  this.data.dialagText);
             let idValue = this.data.dialagText;
             let value = x;
-            let obj = value.find(o => o._id === idValue);
+            let obj = value.find((o:any) => o._id === idValue);
             console.log("obj", obj);            
             let dateConversion = new Date(obj.dob);            
             let formatted_date = dateConversion.getDate() + "-" + (dateConversion.getMonth() + 1) + "-" + dateConversion.getFullYear()

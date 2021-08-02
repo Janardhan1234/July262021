@@ -1,5 +1,9 @@
 .container{
     max-height: 500px;
     max-width: 800px;
+}
 
+.userSelect{
+    width: 100%;
+    height: 35px;
 }

@@ -37,7 +37,12 @@ import {MatDialogModule, MatDialogRef, MatDialog, MAT_DIALOG_DATA} from '@angula
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatInputModule} from '@angular/material/input';
 import { QuillModule } from 'ngx-quill';
-import { UpdateComponent } from './update/update.component'
+import { UpdateComponent } from './update/update.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { BankComponent } from './bank/bank.component';
+import { BankdetailsComponent } from './bankdetails/bankdetails.component';
+// import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -66,6 +71,8 @@ import { UpdateComponent } from './update/update.component'
     UserComponent,
     UserdetailComponent,
     UpdateComponent,
+    BankComponent,
+    BankdetailsComponent,
    
   ],
   imports: [
@@ -85,7 +92,10 @@ import { UpdateComponent } from './update/update.component'
     MatDialogModule,
     MatSnackBarModule,
     MatInputModule,
-    QuillModule.forRoot()   
+    QuillModule.forRoot(),
+    MatDatepickerModule,
+    MatNativeDateModule,
+    // MatSelectModule  
    
   ],
   providers: [

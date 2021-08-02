@@ -1,0 +1,111 @@
+<link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" rel="stylesheet" media="screen">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+
+<div class="col-md-12">
+
+  
+	       
+<form class="form-horizontal" id="form-edit-client" [formGroup]="bankForm" (submit)="bankFormSubmit($event)">
+    <fieldset>
+    
+    <!-- Form Name -->
+    <!-- <legend>Client</legend> -->
+    
+
+    <div class="form-group" > 
+        <label class="col-md-4 control-label" >Select user</label>  
+        <div class="col-md-4">
+          <select class="userSelect" #selectedValue (change)="selected(selectedValue.value)">
+            <option selected>Open this select menu</option>
+            <option *ngFor="let user of userData; let i as index" [value]="user._id">{{user.name}}</option>
+            
+          </select>      
+          
+      </div>  
+     
+        </div>
+        
+      
+    
+    <!-- Text input-->
+   <div class="form-group"> 
+      <label class="col-md-4 control-label" for="client-name">Bank Name</label>  
+      <div class="col-md-4">
+      <input id="client-name" name="bankName" type="text" formControlName="bankName" placeholder="bank name" class="form-control input-md">
+      <!-- <span class="help-block">Bank Name</span> -->
+      <div *ngIf="bankForm.get('bankName').invalid &&  bankForm.get('bankName').touched" class="alert alert-danger">
+        <div *ngIf="bankForm.get('bankName').errors.required">
+            bankName is required.
+        </div>
+        <div *ngIf="bankForm.get('bankName').errors.pattern">
+            enter valid bankName
+        </div>
+    </div>  
+      </div>
+    </div> 
+    
+      <!-- ifsc-->
+   <div class="form-group">
+        <label class="col-md-4 control-label" for="client-ifsc">ifsc</label>  
+        <div class="col-md-4">
+        <input id="client-ifsc" name="ifsc" type="text" formControlName="ifsc" placeholder="enter ifsc" class="form-control input-md">
+        <span class="help-block"></span>
+        <div *ngIf="bankForm.get('ifsc').invalid &&  bankForm.get('ifsc').touched" class="alert alert-danger">
+            <div *ngIf="bankForm.get('ifsc').errors.required">
+                ifsc is required.
+            </div>
+            <div *ngIf="bankForm.get('ifsc').errors.pattern">
+                enter valid ifsc
+            </div>
+        </div>  
+        </div>
+      </div>
+   
+      <!-- account number -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="client-accountNumber">account number</label>  
+        <div class="col-md-4">
+        <input id="client-accountNumber" name="accountNumber" type="number" formControlName="accountNumber" placeholder="account number" class="form-control input-md">
+        <span class="help-block"></span>
+        <div *ngIf="bankForm.get('accountNumber').invalid &&  bankForm.get('accountNumber').touched" class="alert alert-danger">
+            <div *ngIf="bankForm.get('accountNumber').errors.required">
+                accountNumber is required.
+            </div>
+            <div *ngIf="bankForm.get('accountNumber').errors.pattern">
+                enter valid accountNumber
+            </div>
+        </div>  
+        </div>
+      </div> 
+    
+      <!-- amount -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="client-amount">amount</label>  
+        <div class="col-md-4">
+        <input id="client-amount" name="amount" type="number"  formControlName="amount" placeholder="your client's amount" class="form-control input-md">
+        <span class="help-block"></span>
+        <div *ngIf="bankForm.get('amount').invalid &&  bankForm.get('amount').touched" class="alert alert-danger">
+            <div *ngIf="bankForm.get('amount').errors.required">
+                amount is required.
+            </div>
+            <div *ngIf="bankForm.get('amount').errors.pattern">
+                enter valid amount
+            </div>
+        </div>    
+        </div>
+      </div>     
+    
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="btn-save"></label>
+        <div class="col-md-4">
+          <button id="btn-save" type="submit" name="btn-save" class="btn btn-success" [disabled]="bankForm.invalid" >Submit</button>
+        </div>
+      </div>     
+    
+     
+    
+    </fieldset>
+    </form>
+    
+    
+           </div> 
