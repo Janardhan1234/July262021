@@ -1,0 +1,39 @@
+<!-- <form [formGroup]="userForm" (submit)="getUserDetail($event)">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" name="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" name="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <div>add</div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <div class="add-lessons-form" [formGroup]="userForm">
+    <ng-container formArrayName="lessons">
+        <ng-container *ngFor="let lessonForm of lessons.controls; let i = index">
+            <div class="lesson-form-row" [formGroup]="lessonForm">
+                <div appearance="fill">
+                    <input matInput
+                           formControlName="title"
+                           placeholder="Lesson title">
+                </div>
+                
+                <div class="delete-btn" (click)="deleteLesson(i)">
+                    delete_forever</>
+            </div>
+        </ng-container>
+    </ng-container>
+  
+    <button mat-mini-fab (click)="addLesson()">
+        <mat-icon class="add-course-btn">add</mat-icon>
+    </button>
+
+</div> -->

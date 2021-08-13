@@ -52,6 +52,23 @@
 				<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
 			  </li>
 			</ul>
+
+			<li class="sidebar-menu-item">
+				<a  class="sidebar-menu-button" data-toggle="sidebar-dropdown">Reports</a>
+				<!-- <button routerLink="/admin/adminlogin"><a>admin login</a> </button>
+				<button routerLink="/admin/adminlist"><a >admin list</a> </button> -->
+				<!-- Submenu -->
+				<ul class="sidebar-submenu">
+				  <li class="sidebar-menu-item">
+					<!-- <a  class="sidebar-menu-button">Another menu item</a> -->
+					<a  routerLink="/admin/adminlogin">Change Password</a>
+				  </li>
+				  <li class="sidebar-menu-item">
+					<!-- <a  class="sidebar-menu-button">Regular menu item</a> -->
+					<a routerLink="/admin/adminlist">Delete Account </a>
+				  </li>
+				</ul>
+			  </li>
 			<form class="d-flex">
 			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 			  <button class="btn btn-outline-success" type="button">Search</button>

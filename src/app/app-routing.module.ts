@@ -8,6 +8,7 @@ import { CustompipeComponent } from './custompipe/custompipe.component';
 import { DataboundComponent } from './databound/databound.component';
 import { DisplayComponent } from './display/display.component';
 import { ExternaltemplateComponent } from './externaltemplate/externaltemplate.component';
+import { FormarrayComponent } from './formarray/formarray.component';
 import { AuthGuard } from './guard/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -94,6 +95,11 @@ const routes: Routes = [
 {
   path:'bank',
   component: BankComponent
+},
+{
+  path:'formarray',
+  component: FormarrayComponent
+
 }
   
 ];

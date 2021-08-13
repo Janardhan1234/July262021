@@ -83,6 +83,7 @@ export class BankComponent implements OnInit {
       this.snackbar.open("bank details submitted successfully",'',{
         duration:5000
       })
+      this.bankForm.reset();
       
     },
     error => {console.log(error);}

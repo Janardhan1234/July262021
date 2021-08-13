@@ -44,7 +44,7 @@ export class UserdetailComponent implements OnInit {
     private _snackBar: MatSnackBar ) { }
 
   ngOnInit(): void {
-    this.apiService.getData().subscribe(result=>{
+    this.apiService.getData().subscribe((result:any)=>{
       console.log(result);
       // this.userDetails = result;
       // this.listData.push(result);
@@ -85,7 +85,7 @@ export class UserdetailComponent implements OnInit {
         console.log(response);
         // this.router.navigateByUrl('/user');
         console.log(this.dataSource);
-        const item = this.deleteData.find(item => item.id === this.id);
+        const item = this.deleteData.find((item:any) => item.id === this.id);
     this.deleteData.splice(this.deleteData.indexOf(item));
     this.dataSource = new MatTableDataSource(this.deleteData);
     this.dataSource.paginator = this.paginator;

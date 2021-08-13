@@ -42,6 +42,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { BankComponent } from './bank/bank.component';
 import { BankdetailsComponent } from './bankdetails/bankdetails.component';
+import { FormarrayComponent } from './formarray/formarray.component';
 // import {MatSelectModule} from '@angular/material/select';
 
 
@@ -73,6 +74,7 @@ import { BankdetailsComponent } from './bankdetails/bankdetails.component';
     UpdateComponent,
     BankComponent,
     BankdetailsComponent,
+    FormarrayComponent,
    
   ],
   imports: [
